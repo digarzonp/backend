@@ -10,6 +10,9 @@ class AteneaVetAPI{
         
         this.adminEspecie= new AdminEspecie()  //creo un objeto de la clase AdminEspecie
 
+        this.app.use(this.configurarCORS);
+        this.app.use(express.json());       //HABILITAR EL SOPORTES JSON
+
         this.app.post("/crear_especie", (req, res)=>{
 
             this.adminEspecie.crearEspecie(req, res);                           //del objeto llame el metodo crear especie
@@ -19,8 +22,7 @@ class AteneaVetAPI{
             this.adminEspecie.listarEspecies(req, res);
         });                      //crear ruta crear especie
 
-        this.app.use(this.configurarCORS);
-        this.app.use(express.json());       //HABILITAR EL SOPORTES JSON
+
 
     }
     configurarCORS(req, res, next){               //cors nos permite colocarle a alas peticiones unos encabezados para sobrepazar la restincion de la politica de origen unico de los navegadores web

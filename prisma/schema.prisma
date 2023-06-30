@@ -18,5 +18,6 @@ model Especie{
   clasificacion String
   esperanza_vida  Int
   peso_promedio Float
+  fuente Int
 
 }
